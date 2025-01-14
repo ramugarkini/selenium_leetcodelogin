@@ -1,27 +1,55 @@
-# Automation Code Summary
+# LeetCode Automation Script
 
-## Purpose
-The Python code utilizes Selenium WebDriver to automate actions on the LeetCode website, such as logging in, navigating to specific pages, retrieving data, and logging out.
+This project is a Python script designed to automate interactions with the LeetCode platform. The script logs into a user account, retrieves specific data (such as points), and logs out. It uses **Selenium** for web automation and works with the **Firefox** browser.
 
-## Code Overview
-- Imports necessary modules from Selenium and time.
-- Defines a function to read credentials from a file.
-- Creates a Firefox WebDriver instance with options set for headless mode and binary location.
-- Opens the LeetCode login page, reads credentials from a file, and fills in the login form.
-- Finds and clicks the "Sign In" button.
-- Retrieves data from a specified path on the page.
-- Navigates to specific URLs and performs similar actions.
-- Logs out from the LeetCode account.
-- Closes the browser window.
+## Why This Project?
+This script is designed for automating the process of collecting **daily rewards** on LeetCode. It logs into your account, retrieves points or other relevant data for the day, and logs out, all without requiring manual intervention. This is ideal for users who want to automate their daily activities on the platform to consistently earn rewards without having to manually log in every day.
 
-## Usage
-1. Replace `'/path/to/your_credentials.txt'` with the actual path to your credentials file.
-2. Uncomment `firefox_options.add_argument('--headless')` if you want to run in headless mode.
-3. Modify `firefox_options.binary_location` as needed for your Firefox binary location.
+## Features
 
-## Notes
-- Adjust time delays (`time.sleep()`) as per your website's loading times.
-- Update CSS selectors and element IDs if there are any changes on the LeetCode website.
+### 1. Automated Web Login
+- Logs into the LeetCode platform using credentials stored in an external file.
+- Supports headless browsing (no graphical interface) for background operation.
 
-## Conclusion
-This code provides a foundation for automating interactions with the LeetCode website using Selenium WebDriver and Python.
+### 2. Data Retrieval
+- Retrieves specific data (e.g., user points) from a designated page after logging in.
+- Data is extracted from the page dynamically after it has loaded.
+
+### 3. Multi-page Navigation
+- Automatically navigates between multiple pages (e.g., profile, points page).
+- Allows for extraction of data from different parts of the platform.
+
+### 4. Logout Automation
+- Logs out from the LeetCode account after completing the required actions.
+
+### 5. Time Delays and Synchronization
+- Includes time delays (`time.sleep()`) to ensure proper loading of pages.
+- Uses `WebDriverWait` for more reliable synchronization of page elements.
+
+### 6. Reading Credentials from a File
+- Credentials are read from an external file, making the script easy to modify and automate with different accounts.
+
+
+## Setup
+
+### Prerequisites
+- Python 3.x
+- Selenium package
+- Firefox browser and the corresponding **Geckodriver** installed.
+
+### Installation
+1. Install Selenium:
+    ```bash
+    pip install selenium
+    ```
+
+2. Download the correct **Geckodriver** version for your platform:  
+   [Geckodriver Downloads](https://github.com/mozilla/geckodriver/releases)
+
+3. Place your **credentials file** (`your_credentials.txt`) in the appropriate directory with the following format:
+
+4. Run the script with the following command:
+ ```bash
+ python leetcodelogin.py
+ ```
+
